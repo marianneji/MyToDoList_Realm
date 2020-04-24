@@ -40,7 +40,11 @@ class ToDoListViewController: SwipeTableViewController {
                 navBar.tintColor = textContrast
                 navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: textContrast]
                 searchBar.barTintColor = navBarColor
-                searchBar.searchTextField.backgroundColor = .white
+                if #available(iOS 13.0, *) {
+                    searchBar.searchTextField.backgroundColor = .white
+                } else {
+                    // Fallback on earlier versions
+                }
                 searchBar.tintColor = .black
             }
         }
